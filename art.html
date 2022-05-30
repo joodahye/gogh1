@@ -27,16 +27,16 @@
 		$("#arts button").click(function(){
 				//작품 섬네일 이미지 주소를 imgSrc 변수의 값으로 재할당됨.
 				imgSrc = $(this).children().attr("src");
-				console.log(imgSrc); 
+				//console.log(imgSrc); 
 				
 				imgAlt = $(this).children().attr("alt");
-				console.log(imgAlt);
+				//console.log(imgAlt);
 				
 				//팝업창이 보인다
 				$("#popup").fadeIn();
 				
 				//팝업창에 <h2> 변수 값을 확인				
-				console.log( $("#popup h2").text () );
+				//console.log( $("#popup h2").text () );
 				
 				//팝업창에 <h2> 변수 값을 적용
 				$("popup h2").text( imgAlt );
@@ -45,16 +45,26 @@
 				//팝업창에서 이미지 대체글 바꾸기
 				$("#popup img").attr("alt", imgAlt);
 				
+				
+				/////스크립트 연습
+				//$("#arts button").css("transform", "rotate(0)");
+				//$(this).css("transform","rotate(45deg)");
+				//$("#arts").css("overflow","hidden");
+				
 				//교체하다 메소드 replace()
 				let i = "어제컴퓨터";
 				let j = i.replace("어제","이젠");
-				console.log( j );
+				//console.log( j );
+				
+				
+				
+				//replace()메소드를 이용하여 이미지명을 변경한다.
+				let imgSrcNew = imgSrc.replace(".jpg","_big.jpg");
+				
 				
 				//팝업창에서 이미지 바꾸기
 				$("#popup img").attr("src", imgSrcNew );
 				
-				//replace()메소드를 이용하여 이미지명을 변경한다.
-				let imgSrcNew = imgSrc.replace(".jpg","_big.jpg");
 				
 		});//썸네일 이미지(button)클릭:끝부분
 		
@@ -64,6 +74,8 @@
 			$("#popup").fadeOut();
 		});
 		
+		
+	
 	});
 </script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -82,7 +94,7 @@ header h1 img {margin:auto;}
 header button {color:white; font-size:2.5rem; background:transparent; border:none;}
 
 /*내비게이션*/
-nav {background:#162039; position:absolute; width:100%; padding:40px 0px; display:none;}
+nav {background:#162039; position:absolute; width:100%; padding:40px 0px; display:none; z-index:1;}
 nav ul {line-height:450%; padding-left:20%; color:white; list-style-image:url("images/icon_star.jpg");}
 nav a {color:white; text-decoration:none; font-size:1.25rem; margin-left:8px; display:block;}
 
